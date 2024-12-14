@@ -1,0 +1,12 @@
+<div class="completed-stages">
+  <h1>Completed Stages</h1>
+  <div *ngFor="let stage of completedStages" class="stage-card">
+    <h2>{{ stage.name }}</h2>
+    <p>{{ stage.description }}</p>
+    <div class="stage-details">
+      <p><strong>Start:</strong> {{ stage.start_datetime }}</p>
+      <p><strong>End:</strong> {{ stage.end_datetime }}</p>
+      <p><strong>Distance:</strong> {{ stage.distance }} km</p>
+    </div>
+  </div>
+</div>

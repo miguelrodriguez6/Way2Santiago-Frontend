@@ -1,12 +1,12 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <a class="navbar-logo" href="#">CaminoApp</a>
+    <a class="navbar-logo" routerLink="/">CaminoApp</a>
     <ul class="navbar-links">
-      <li><a href="#stages">Stages</a></li>
-      <li><a href="#plan">Plan your Camino</a></li>
-      <li><a href="#accommodations">Accommodations</a></li>
-      <li><a href="#information">Information</a></li>
-      <li><a href="#settings">Settings</a></li>
+      <li><a routerLink="/stages" >Stages</a></li>
+      <li><a routerLink="/plan">Plan your Camino</a></li>
+      <li><a routerLink="/accommodations">Accommodations</a></li>
+      <li><a routerLink="/info">Information</a></li>
+      <li><a routerLink="/settings">Settings</a></li>
     </ul>
     <div class="navbar-toggle" (click)="toggleMenu()">
       <span></span>
@@ -15,10 +15,10 @@
     </div>
   </div>
   <div class="navbar-menu" *ngIf="isMenuOpen">
-    <a href="#stages" (click)="closeMenu()">Stages</a>
-    <a href="#plan" (click)="closeMenu()">Plan your Camino</a>
-    <a href="#accommodations" (click)="closeMenu()">Accommodations</a>
-    <a href="#information" (click)="closeMenu()">Information</a>
-    <a href="#settings" (click)="closeMenu()">Settings</a>
+    <a routerLink="/stages" (click)="closeMenu()">Stages</a>
+    <a routerLink="/plan" (click)="closeMenu()">Plan your Camino</a>
+    <a routerLink="/accommodations" (click)="closeMenu()">Accommodations</a>
+    <a routerLink="/info" (click)="closeMenu()">Information</a>
+    <a routerLink="/settings" (click)="closeMenu()">Settings</a>
   </div>
 </nav>
