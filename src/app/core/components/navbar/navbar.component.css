@@ -16,7 +16,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  /*padding: 0 250px 0 250px;*/
 }
 
 .navbar-logo {
@@ -25,6 +24,15 @@
   text-decoration: none;
   color: #C8102E;
   margin-left: 20vw;
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 40px;
+  width: auto;
+  display: block;
+  margin-right: 10px;
 }
 
 .navbar-logo:hover {

@@ -1,12 +1,15 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <a class="navbar-logo" routerLink="/">CaminoApp</a>
+    <a class="navbar-logo" routerLink="/">
+      <img src="images/cruz-santiago.svg" alt="CaminoApp Logo" class="logo-image" />
+      CaminoApp
+    </a>
     <ul class="navbar-links">
-      <li><a routerLink="/stages" >Stages</a></li>
-      <li><a routerLink="/plan">Plan your Camino</a></li>
-      <li><a routerLink="/accommodations">Accommodations</a></li>
-      <li><a routerLink="/info">Information</a></li>
-      <li><a routerLink="/settings">Settings</a></li>
+      <li class="flex items-center"><a routerLink="/stages" class="flex items-center">Stages</a></li>
+      <li class="flex items-center"><a routerLink="/plan" class="flex items-center">Plan your Camino</a></li>
+      <li class="flex items-center"><a routerLink="/accommodations" class="flex items-center">Accommodations</a></li>
+      <li class="flex items-center"><a routerLink="/info" class="flex items-center">Information</a></li>
+      <li class="flex items-center"><a routerLink="/account" class="flex items-center"><mat-icon>account_circle</mat-icon></a></li>
     </ul>
     <div class="navbar-toggle" (click)="toggleMenu()">
       <span></span>
@@ -19,6 +22,6 @@
     <a routerLink="/plan" (click)="closeMenu()">Plan your Camino</a>
     <a routerLink="/accommodations" (click)="closeMenu()">Accommodations</a>
     <a routerLink="/info" (click)="closeMenu()">Information</a>
-    <a routerLink="/settings" (click)="closeMenu()">Settings</a>
+    <a routerLink="/account" (click)="closeMenu()">Account</a>
   </div>
 </nav>
