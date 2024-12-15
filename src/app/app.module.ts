@@ -12,6 +12,8 @@ import { PlanComponent } from './modules/plan/plan.component';
 import { SettingsComponent } from './modules/settings/settings.component';
 import { AccommodationsComponent } from './modules/accommodations/accommodations.component';
 import { StageComponent } from './modules/stage/stage.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatIcon} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,12 @@ import { StageComponent } from './modules/stage/stage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatIcon
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

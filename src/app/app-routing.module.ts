@@ -29,7 +29,7 @@ const routes: Routes = [
     component: AccommodationsComponent
   },
   {
-    path: 'settings',
+    path: 'account',
     component: SettingsComponent
   },
 ];
