@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,12 +11,21 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
 
   isMenuOpen = false;
+  isAccountMenuOpen = false;
 
-  toggleMenu() {
+  constructor(protected readonly authService: AuthService) {
+  }
+
+  toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  closeMenu() {
+  closeMenu(): void {
     this.isMenuOpen = false;
   }
+
+  logout(): void {
+    this.authService.logout();
+  }
+
 }
