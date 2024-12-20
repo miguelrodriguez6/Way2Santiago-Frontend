@@ -6,31 +6,52 @@ import {PlanComponent} from './modules/plan/plan.component';
 import {SettingsComponent} from './modules/settings/settings.component';
 import {StageComponent} from './modules/stage/stage.component';
 import {AccommodationsComponent} from './modules/accommodations/accommodations.component';
+import {LoginComponent} from './modules/login/login.component';
+import {RegisterComponent} from './modules/register/register.component';
+import {AuthGuardService} from './core/services/auth-guard.service';
 
 const routes: Routes = [
   {
-    path: '',
-    component: WelcomePageComponent
+    path: 'home',
+    component: WelcomePageComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'stages',
-    component: StageComponent
+    component: StageComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'plan',
-    component: PlanComponent
+    component: PlanComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'info',
-    component: InformationComponent
+    component: InformationComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'accommodations',
-    component: AccommodationsComponent
+    component: AccommodationsComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'account',
-    component: SettingsComponent
+    component: SettingsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
   },
 ];
 

@@ -14,6 +14,10 @@ import { AccommodationsComponent } from './modules/accommodations/accommodations
 import { StageComponent } from './modules/stage/stage.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatIcon} from '@angular/material/icon';
+import { LoginComponent } from './modules/login/login.component';
+import { RegisterComponent } from './modules/register/register.component';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
+import {MatButton} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,13 +29,19 @@ import {MatIcon} from '@angular/material/icon';
     PlanComponent,
     SettingsComponent,
     AccommodationsComponent,
-    StageComponent
+    StageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MatIcon
+    MatIcon,
+    MatMenu,
+    MatButton,
+    MatMenuItem,
+    MatMenuTrigger
   ],
   providers: [
     provideAnimationsAsync()
