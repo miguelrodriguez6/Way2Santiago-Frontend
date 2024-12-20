@@ -18,6 +18,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { RegisterComponent } from './modules/register/register.component';
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {MatButton} from '@angular/material/button';
+import {provideHttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,10 +42,11 @@ import {MatButton} from '@angular/material/button';
     MatMenu,
     MatButton,
     MatMenuItem,
-    MatMenuTrigger
+    MatMenuTrigger,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })
