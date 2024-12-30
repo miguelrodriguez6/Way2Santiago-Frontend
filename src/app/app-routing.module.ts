@@ -9,6 +9,7 @@ import {AccommodationsComponent} from './modules/accommodations/accommodations.c
 import {LoginComponent} from './modules/login/login.component';
 import {RegisterComponent} from './modules/register/register.component';
 import {AuthGuardService} from './core/services/auth-guard.service';
+import {NewStageComponent} from './modules/stage/new-stage/new-stage.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: 'stages',
     component: StageComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'new-stage',
+    component: NewStageComponent,
     canActivate: [AuthGuardService]
   },
   {

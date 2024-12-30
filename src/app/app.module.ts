@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './core/components/welcome-page/welcome-page.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { FooterComponent } from './core/components/footer/footer.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { InformationComponent } from './modules/information/information.component';
 import { PlanComponent } from './modules/plan/plan.component';
 import { SettingsComponent } from './modules/settings/settings.component';
@@ -19,6 +19,7 @@ import { RegisterComponent } from './modules/register/register.component';
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {MatButton} from '@angular/material/button';
 import {provideHttpClient} from '@angular/common/http';
+import {NewStageComponent} from './modules/stage/new-stage/new-stage.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {provideHttpClient} from '@angular/common/http';
     SettingsComponent,
     AccommodationsComponent,
     StageComponent,
+    NewStageComponent,
     LoginComponent,
     RegisterComponent
   ],
@@ -43,6 +45,7 @@ import {provideHttpClient} from '@angular/common/http';
     MatButton,
     MatMenuItem,
     MatMenuTrigger,
+    ReactiveFormsModule,
   ],
   providers: [
     provideAnimationsAsync(),

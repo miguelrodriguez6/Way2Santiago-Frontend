@@ -9,19 +9,24 @@ import {RegisterInputData} from '../../shared/domain/register-input-data.model';
 })
 export class AuthService {
 
-  private isLoggedIn = false;
+  isLoggedIn = false;
+  user: any;
   private readonly apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
+
+  verifyAuthentication(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/auth/verify`, { withCredentials: true });  }
 
   login(email: string, password: string): Observable<any> {
     const body = {
       email: email,
       password: password
     };
-    return this.http.post<any>(`${this.apiUrl}/auth/login`, body).pipe(
-      tap(() => {
+    return this.http.post<any>(`${this.apiUrl}/auth/login`, body, { withCredentials: true }).pipe(
+      tap((response) => {
         this.isLoggedIn = true;
+        this.user = response.user;
         alert("Logged in!");
       }),
       catchError(error => {
@@ -37,6 +42,7 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/auth/logout`, {}).pipe(
       tap(() => {
         this.isLoggedIn = false;
+        this.user = null;
         alert("Logged out!");
       }),
       catchError(error => {
