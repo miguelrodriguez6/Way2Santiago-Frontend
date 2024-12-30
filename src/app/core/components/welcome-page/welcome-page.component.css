@@ -1,6 +1,7 @@
 .home-page {
   margin: auto 20vw auto 20vw;
   padding: 40px 0;
+  min-height: 84vh;
 }
 
 .row {
