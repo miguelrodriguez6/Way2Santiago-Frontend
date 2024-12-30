@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {catchError, Observable, tap, throwError} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environment/environment';
+import {RegisterInputData} from '../../shared/domain/register-input-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/auth/login`, body).pipe(
       tap(() => {
         this.isLoggedIn = true;
+        alert("Logged in!");
       }),
       catchError(error => {
         console.error('Error logging in:', error);
@@ -35,9 +37,33 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/auth/logout`, {}).pipe(
       tap(() => {
         this.isLoggedIn = false;
+        alert("Logged out!");
       }),
       catchError(error => {
         console.error('Error logging in:', error);
+        return throwError(() => new Error('Something went wrong'));
+      })
+    );
+  }
+
+  register(registrationData: RegisterInputData): Observable<any> {
+
+    const body: RegisterInputData = {
+      username: registrationData.username,
+      email: registrationData.email,
+      password: registrationData.password,
+      password_confirmation: registrationData.password_confirmation,
+      first_name: registrationData.first_name,
+      last_name: registrationData.last_name
+    };
+
+    return this.http.post<any>(`${this.apiUrl}/users/register`, body).pipe(
+      tap(() => {
+        this.isLoggedIn = false;
+        alert("User registered!");
+      }),
+      catchError(error => {
+        console.error('Error registering user:', error);
         return throwError(() => new Error('Something went wrong'));
       })
     );

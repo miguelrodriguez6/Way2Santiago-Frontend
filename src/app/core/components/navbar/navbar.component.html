@@ -9,14 +9,14 @@
       <li class="flex items-center"><a routerLink="/plan" class="flex items-center">Plan your Camino</a></li>
       <li class="flex items-center"><a routerLink="/accommodations" class="flex items-center">Accommodations</a></li>
       <li class="flex items-center"><a routerLink="/info" class="flex items-center">Information</a></li>
-      <li class="relative flex items-center">
+      <li *ngIf="authService.isAuthenticated()" class="relative flex items-center">
         <mat-icon class="cursor-pointer" [matMenuTriggerFor]="menu" >account_circle</mat-icon>
         <mat-menu #menu="matMenu" >
           <button mat-menu-item routerLink="/account">Account</button>
-          <button *ngIf="authService.isAuthenticated()" mat-menu-item routerLink="/" (click)="logout()">Log out</button>
+          <button mat-menu-item routerLink="/" (click)="logout()">Log out</button>
         </mat-menu>
-
       </li>
+      <li *ngIf="!authService.isAuthenticated()" class="flex items-center border border-gray-300 p-2 rounded-md"><a routerLink="/info" class="flex items-center">Log in</a></li>
     </ul>
     <div class="navbar-toggle" (click)="toggleMenu()">
       <span></span>
