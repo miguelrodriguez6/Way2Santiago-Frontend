@@ -10,6 +10,7 @@ import {LoginComponent} from './modules/login/login.component';
 import {RegisterComponent} from './modules/register/register.component';
 import {AuthGuardService} from './core/services/auth-guard.service';
 import {NewStageComponent} from './modules/stage/new-stage/new-stage.component';
+import {MapComponent} from './modules/map/map.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,11 @@ const routes: Routes = [
   {
     path: 'account',
     component: SettingsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'map',
+    component: MapComponent,
     canActivate: [AuthGuardService]
   },
   {

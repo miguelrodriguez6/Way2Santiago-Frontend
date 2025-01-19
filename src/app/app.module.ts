@@ -20,6 +20,7 @@ import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {MatButton} from '@angular/material/button';
 import {provideHttpClient} from '@angular/common/http';
 import {NewStageComponent} from './modules/stage/new-stage/new-stage.component';
+import { MapComponent } from './modules/map/map.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {NewStageComponent} from './modules/stage/new-stage/new-stage.component';
     StageComponent,
     NewStageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

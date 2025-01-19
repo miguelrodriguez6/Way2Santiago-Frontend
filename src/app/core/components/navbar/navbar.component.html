@@ -6,7 +6,7 @@
     </a>
     <ul class="navbar-links">
       <li class="flex items-center"><a routerLink="/stages" class="flex items-center">Stages</a></li>
-      <li class="flex items-center"><a routerLink="/plan" class="flex items-center">Plan your Camino</a></li>
+      <li class="flex items-center"><a routerLink="/map" class="flex items-center">Trail Map</a></li>
       <li class="flex items-center"><a routerLink="/accommodations" class="flex items-center">Accommodations</a></li>
       <li class="flex items-center"><a routerLink="/info" class="flex items-center">Information</a></li>
       <li *ngIf="authService.isAuthenticated()" class="relative flex items-center">
@@ -26,7 +26,7 @@
   </div>
   <div class="navbar-menu" *ngIf="isMenuOpen">
     <a routerLink="/stages" (click)="closeMenu()">Stages</a>
-    <a routerLink="/plan" (click)="closeMenu()">Plan your Camino</a>
+    <a routerLink="/map" (click)="closeMenu()">Trail Map</a>
     <a routerLink="/accommodations" (click)="closeMenu()">Accommodations</a>
     <a routerLink="/info" (click)="closeMenu()">Information</a>
     <a routerLink="/account" (click)="closeMenu()">Account</a>
