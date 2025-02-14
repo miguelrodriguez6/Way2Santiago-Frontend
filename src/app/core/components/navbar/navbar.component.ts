@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
+import {catchError, throwError} from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -24,8 +25,15 @@ export class NavbarComponent {
     this.isMenuOpen = false;
   }
 
+  errorMessage: string = '';
+
   logout(): void {
-    this.authService.logout();
+    this.authService.logout().pipe(
+      catchError(error => {
+        this.errorMessage = error.error?.message || 'An error occurred during login';
+        return throwError(() => error);
+      })
+    ).subscribe();
   }
 
 }
