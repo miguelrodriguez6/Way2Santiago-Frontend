@@ -7,7 +7,7 @@ import {catchError, Observable, shareReplay, throwError} from 'rxjs';
 })
 export class NominatimGeoService {
 
-  private apiUrl = 'https://nominatim.openstreetmap.org/';
+  private apiUrl = 'https://nominatim.openstreetmap.org';
 
   constructor(private http: HttpClient) {}
 
