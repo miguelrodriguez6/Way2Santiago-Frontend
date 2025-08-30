@@ -1,1 +1,22 @@
-<p>accommodations works!</p>
+<div class="accommodation-slider" *ngIf="activeAccommodation; else noData">
+  <div class="slide">
+    <div class="slide-info">
+      <h2>{{ activeAccommodation.name }}</h2>
+      <p>{{ activeAccommodation.description }}</p>
+      <span class="location">{{ activeAccommodation.address }}</span>
+      <span class="location">{{ activeAccommodation.city }}, {{ activeAccommodation.country }}</span>
+      <p><a href="{{activeAccommodation.link}}">Link to Web Page</a></p>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button (click)="prevSlide()">&#10094;</button>
+    <button (click)="nextSlide()">&#10095;</button>
+  </div>
+</div>
+
+<ng-template #noData>
+  <div class="no-accommodations">
+    <p>No accommodations found.</p>
+  </div>
+</ng-template>
