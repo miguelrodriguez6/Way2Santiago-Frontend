@@ -1,0 +1,41 @@
+<div class="p-6 space-y-6 bg-gray-100 min-h-screen">
+  <button
+    routerLink="/new-stage"
+    class="px-4 py-2 bg-customRed text-white rounded hover:bg-red-700 transition"
+  >
+    New Stage
+  </button>
+
+  <div
+    *ngFor="let stage of stages"
+    class="p-4 bg-white shadow rounded-lg border border-gray-200 space-y-4"
+  >
+    <h2 class="text-2xl font-bold text-gray-800">{{ stage.name }}</h2>
+
+    <p class="text-gray-600">{{ stage.description }}</p>
+
+    <div class="space-y-2">
+      <p class="text-gray-700">
+        <strong>Start:</strong> {{ stage.start_datetime }}
+      </p>
+      <p class="text-gray-700">
+        <strong>End:</strong> {{ stage.end_datetime }}
+      </p>
+      <p class="text-gray-700">
+        <strong>Initial location:</strong> {{ stage.start_location.name }}
+      </p>
+      <p class="text-gray-700">
+        <strong>End location:</strong> {{ stage.end_location.name }}
+      </p>
+      <p class="text-gray-700">
+        <strong>Distance:</strong> {{ stage.distance }} km
+      </p>
+      <p class="text-gray-700">
+        <strong>Status:</strong> {{ stage.status }}
+      </p>
+      <p class="text-gray-700">
+        <strong>Author:</strong> {{ stage.creator || 'unknown'}}
+      </p>
+    </div>
+  </div>
+</div>
