@@ -1,0 +1,74 @@
+/* Contenedor principal del slider */
+.accommodation-slider {
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  position: relative;
+}
+
+/* Slide */
+.slide {
+  padding: 20px 30px;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+/* Información del slide */
+.slide-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.slide-info p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.slide-info .location {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+/* Controles (botones) */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none; /* evita que los botones bloqueen el texto */
+}
+
+.controls button {
+  pointer-events: all; /* habilita solo los botones */
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Mensaje de no data */
+.no-accommodations {
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999;
+}

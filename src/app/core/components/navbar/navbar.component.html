@@ -1,15 +1,22 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <a class="navbar-logo" routerLink="/">
+    <a class="navbar-logo" routerLink="/home">
       <img src="images/cruz-santiago.svg" alt="CaminoApp Logo" class="logo-image" />
       CaminoApp
     </a>
     <ul class="navbar-links">
-      <li class="flex items-center"><a routerLink="/stages" class="flex items-center">Stages</a></li>
-      <li class="flex items-center"><a routerLink="/plan" class="flex items-center">Plan your Camino</a></li>
-      <li class="flex items-center"><a routerLink="/accommodations" class="flex items-center">Accommodations</a></li>
-      <li class="flex items-center"><a routerLink="/info" class="flex items-center">Information</a></li>
-      <li class="flex items-center"><a routerLink="/account" class="flex items-center"><mat-icon>account_circle</mat-icon></a></li>
+      <li class="flex items-center" *ngIf="authService.isAuthenticated()"><a routerLink="/stages" class="flex items-center">Stages</a></li>
+      <li class="flex items-center" *ngIf="authService.isAuthenticated()"><a routerLink="/map" class="flex items-center">Trail Map</a></li>
+      <li class="flex items-center" *ngIf="authService.isAuthenticated()"><a routerLink="/accommodations" class="flex items-center">Accommodations</a></li>
+      <li class="flex items-center" *ngIf="authService.isAuthenticated()"><a routerLink="/info" class="flex items-center">Information</a></li>
+      <li *ngIf="authService.isAuthenticated()" class="relative flex items-center">
+        <mat-icon class="cursor-pointer" [matMenuTriggerFor]="menu" >account_circle</mat-icon>
+        <mat-menu #menu="matMenu" >
+          <button mat-menu-item routerLink="/account">Account</button>
+          <button mat-menu-item routerLink="/" (click)="logout()">Log out</button>
+        </mat-menu>
+      </li>
+      <li *ngIf="!authService.isAuthenticated()" class="flex items-center border border-gray-300 p-2 rounded-md"><a routerLink="/info" class="flex items-center">Log in</a></li>
     </ul>
     <div class="navbar-toggle" (click)="toggleMenu()">
       <span></span>
@@ -19,7 +26,7 @@
   </div>
   <div class="navbar-menu" *ngIf="isMenuOpen">
     <a routerLink="/stages" (click)="closeMenu()">Stages</a>
-    <a routerLink="/plan" (click)="closeMenu()">Plan your Camino</a>
+    <a routerLink="/map" (click)="closeMenu()">Trail Map</a>
     <a routerLink="/accommodations" (click)="closeMenu()">Accommodations</a>
     <a routerLink="/info" (click)="closeMenu()">Information</a>
     <a routerLink="/account" (click)="closeMenu()">Account</a>

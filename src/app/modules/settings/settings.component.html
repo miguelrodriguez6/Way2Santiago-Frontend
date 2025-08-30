@@ -1,1 +1,74 @@
-<p>settings works!</p>
+<div class="bg-gradient-to-r from-red-400 to-red-500 min-h-[84vh] py-12 px-4">
+  <!-- User Information Card -->
+  <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-xl p-8 space-y-6">
+    <div class="flex items-center space-x-4">
+      <!-- User Avatar -->
+      <div class="h-16 w-16 bg-gray-300 rounded-full overflow-hidden">
+        <img src="https://img.icons8.com/ios/452/user-male.png" alt="User Avatar" class="h-full w-full object-cover">
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900">{{ user.first_name }} {{ user.last_name }}</h2>
+        <p class="text-lg text-gray-600">{{ user.username }}</p>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <!-- Email -->
+      <div class="flex justify-between items-center">
+        <span class="text-lg font-semibold text-gray-700">Email:</span>
+        <span class="text-lg text-gray-600">{{ user.email }}</span>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="flex justify-between items-center">
+        <span class="text-lg font-semibold text-gray-700">Date of Birth:</span>
+        <span class="text-lg text-gray-600" *ngIf="user.date_of_birth">{{ formatDate(user.date_of_birth) }}</span>
+        <span class="text-lg text-gray-600" *ngIf="!user.date_of_birth">Not Provided</span>
+      </div>
+
+      <!-- Nationality -->
+      <div class="flex justify-between items-center">
+        <span class="text-lg font-semibold text-gray-700">Nationality:</span>
+        <span class="text-lg text-gray-600" *ngIf="user.nationality">{{ user.nationality }}</span>
+        <span class="text-lg text-gray-600" *ngIf="!user.nationality">Not Provided</span>
+      </div>
+
+      <!-- Description -->
+      <div class="flex justify-between items-center">
+        <span class="text-lg font-semibold text-gray-700">Description:</span>
+        <span class="text-lg text-gray-600" *ngIf="user.description">{{ user.description }}</span>
+        <span class="text-lg text-gray-600" *ngIf="!user.description">Not Provided</span>
+      </div>
+
+      <!-- Account Created -->
+      <div class="flex justify-between items-center">
+        <span class="text-lg font-semibold text-gray-700">Account Created:</span>
+        <span class="text-lg text-gray-600">{{ formatDate(user.created_at) }}</span>
+      </div>
+
+      <!-- Last Updated -->
+      <div class="flex justify-between items-center">
+        <span class="text-lg font-semibold text-gray-700">Last Updated:</span>
+        <span class="text-lg text-gray-600">{{ formatDate(user.updated_at) }}</span>
+      </div>
+    </div>
+
+    <!-- Edit Settings Button -->
+<!--    <div class="mt-8 flex justify-center">-->
+<!--      <button class="bg-customRed text-white py-3 px-8 rounded-full hover:bg-red-700 transition duration-200 focus:outline-none">-->
+<!--        Edit Profile-->
+<!--      </button>-->
+<!--    </div>-->
+    <div class="mt-8 flex justify-center relative group">
+      <button [disabled]="true" class="bg-gray-400 text-gray-500 py-3 px-8 rounded-full cursor-not-allowed transition duration-200 focus:outline-none disabled:bg-gray-300 disabled:text-gray-400 disabled:hover:bg-gray-300 disabled:cursor-not-allowed">
+        Edit Profile
+      </button>
+
+      <div class="absolute hidden group-hover:block text-sm text-white bg-black py-1 px-3 rounded-lg top-full left-1/2 transform -translate-x-1/2 mt-0.5">
+        This functionality is still disabled.
+      </div>
+    </div>
+
+
+  </div>
+</div>

@@ -5,9 +5,9 @@ import {catchError, Observable, shareReplay, throwError} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class NominatimGeoServiceService {
+export class NominatimGeoService {
 
-  private apiUrl = 'https://nominatim.openstreetmap.org/';
+  private apiUrl = 'https://nominatim.openstreetmap.org';
 
   constructor(private http: HttpClient) {}
 

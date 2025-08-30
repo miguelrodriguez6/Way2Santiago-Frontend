@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,29 @@ export class AuthInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // const authToken = localStorage.getItem('token'); //define required authentication
 
-    const authReq = req.clone({
-      // headers: req.headers.set('Authorization', `Bearer ${authToken}`)
-    });
+    const authToken = this.getCookie('jwt'); // Obtener el token desde la cookie 'jwt'
 
-    return next.handle(authReq);
+    if (authToken) {
+      const authReq = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${authToken}` // Setear el header de autorización
+        }
+      });
+
+      return next.handle(authReq);
+    }
+
+    // Si no hay token, simplemente se pasa la solicitud sin modificar
+    return next.handle(req);
+  }
+
+  // Función para obtener el valor de una cookie por su nombre
+  private getCookie(name: string): string | null {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) {
+      return match[2];
+    }
+    return null;
   }
 }

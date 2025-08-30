@@ -1,0 +1,58 @@
+<div class="min-h-[84vh] flex items-center justify-center bg-gray-50">
+  <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-sm">
+    <h2 class="text-3xl font-semibold text-center text-customRed mb-6">Login</h2>
+
+    <!-- Login Form -->
+    <form (submit)="onSubmit()" class="space-y-4">
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          class="mt-2 block w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-customRed focus:border-customRed"
+          required
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          class="mt-2 block w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-customRed focus:border-customRed"
+          required
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <!-- Login Button -->
+      <button
+        type="submit"
+        class="w-full py-2 bg-customRed text-white font-semibold rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-customRed"
+      >
+        Log In
+      </button>
+    </form>
+
+    <div *ngIf="errorMessage" class="text-red-500 text-center m-4">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Link to Recover Password -->
+<!--    <div class="mt-4 text-center">-->
+<!--      <a routerLink="/" class="text-sm text-customRed hover:underline">Forgot your password?</a>-->
+<!--    </div>-->
+
+    <!-- Link to Create Account -->
+    <div class="mt-2 text-center">
+      <p class="text-sm text-gray-600">Don’t have an account? <a routerLink="/register" class="text-customRed hover:underline">Sign up</a></p>
+    </div>
+  </div>
+</div>
