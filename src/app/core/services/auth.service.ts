@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {catchError, Observable, tap, throwError} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {catchError, map, Observable, tap, throwError} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environment/environment';
 import {RegisterInputData} from '../../shared/domain/register-input-data.model';
 
@@ -46,7 +46,7 @@ export class AuthService {
         alert("Logged out!");
       }),
       catchError(error => {
-        console.error('Error logging in:', error);
+        console.error('Error logging out:', error);
         return throwError(() => new Error('Something went wrong'));
       })
     );
@@ -77,5 +77,9 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return this.isLoggedIn;
+  }
+
+  getAuthenticatedUserId(): number {
+    return this.user.id;
   }
 }

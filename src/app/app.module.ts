@@ -18,9 +18,10 @@ import { LoginComponent } from './modules/login/login.component';
 import { RegisterComponent } from './modules/register/register.component';
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {MatButton} from '@angular/material/button';
-import {provideHttpClient} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, provideHttpClient} from '@angular/common/http';
 import {NewStageComponent} from './modules/stage/new-stage/new-stage.component';
 import { MapComponent } from './modules/map/map.component';
+import {AuthInterceptorService} from './core/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,12 @@ import { MapComponent } from './modules/map/map.component';
   ],
   providers: [
     provideAnimationsAsync(),
-    provideHttpClient()
+    provideHttpClient(),
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptorService,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })
