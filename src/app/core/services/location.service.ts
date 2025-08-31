@@ -15,9 +15,6 @@ export class LocationService {
 
   createLocation(location: Location): Observable<number> {
     return this.http.post<any>(`${this.apiUrl}/locations`, location).pipe(
-      tap(() => {
-        alert("New location created!");
-      }),
       map(response => {
         console.log("ID de la location creada:", response.data.id); // ahora sí
         return response.data.id;

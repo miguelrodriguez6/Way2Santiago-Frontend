@@ -27,7 +27,7 @@ export interface StageDto {
 
   templateUrl: './new-stage.component.html',
 })
-export class NewStageComponent implements OnInit {
+export class NewStageComponent {
   stageForm: FormGroup;
   stage: Stage;
   startLocationId: number = 0;
@@ -55,138 +55,8 @@ export class NewStageComponent implements OnInit {
     });
 
     this.stage = this.stageForm.value;
-
-    // this.auth.getUserId().subscribe({
-    //   next: (id) => {
-    //     this.userId = id;
-    //     console.log('ID del usuario autenticado:', id);
-    //   },
-    //   error: (err) => {
-    //     console.error('No se pudo obtener el ID:', err);
-    //   }
-    // });
     this.userId = this.authService.getAuthenticatedUserId();
   }
-
-  ngOnInit(): void {
-
-  }
-
-  // onSubmit() {
-  //   if (this.stageForm.valid) {
-  //     this.stage = this.stageForm.value;
-  //
-  //     //create start location if not exists
-  //     const location: Location = {
-  //       name: this.stage.start_location,
-  //       latitude: null,
-  //       longitude: null
-  //     }
-  //
-  //     // with the name obtain the latitude and longitude if possible, if not set both to null
-  //     // this.nominatimGeoService.getCoordinatesByLocationName(this.stage.start_location).pipe(
-  //     //   catchError(error => {
-  //     //     this.errorMessage = error.error?.message || 'An error occurred';
-  //     //     return throwError(() => error);
-  //     //   })
-  //     //
-  //     // ).subscribe({
-  //     //   next: (response) => {
-  //     //     location.longitude = response[0].lon;
-  //     //     location.latitude = response[0].lat;
-  //     //   }
-  //     // });
-  //     // this.locationService.createLocation(location).subscribe({
-  //     //   next: (id) => {
-  //     //     console.log("ID de la location creada:", id);
-  //     //     this.startLocationId = id;
-  //     //   },
-  //     //   error: (err) => {
-  //     //     console.error("Error al crear location:", err);
-  //     //   }
-  //     // });
-  //
-  //     this.locationService.checkIfLocationExistsByName(location).subscribe({
-  //       next: (response) => {
-  //         if (response.exists) {
-  //           // La location ya existe, usamos su ID
-  //           console.log("La location ya existe, ID:", response.id);
-  //           this.startLocationId = response.id ?? 0;
-  //         } else {
-  //           // La location no existe, la creamos
-  //           this.locationService.createLocation(location).subscribe({
-  //             next: (id) => {
-  //               this.startLocationId = id;
-  //             },
-  //             error: (err) => {
-  //               console.error("Error al crear location:", err);
-  //             }
-  //           });
-  //         }
-  //       },
-  //       error: (err) => {
-  //         console.error("Error al chequear location:", err);
-  //       }
-  //     });
-  //
-  //
-  //     //create end location if not exists
-  //     // with the name obtain the latitude and longitude if possible, if not set both to null
-  //     // this.nominatimGeoService.getCoordinatesByLocationName(this.stage.end_location).pipe(
-  //     //   catchError(error => {
-  //     //     this.errorMessage = error.error?.message || 'An error occurred';
-  //     //     return throwError(() => error);
-  //     //   })
-  //     // ).subscribe({
-  //     //   next: (response) => {
-  //     //     location.longitude = response[0].lon;
-  //     //     location.latitude = response[0].lat;
-  //     //   }
-  //     // });
-  //
-  //     location.name = this.stage.end_location;
-  //     this.locationService.checkIfLocationExistsByName(location).subscribe({
-  //       next: (response) => {
-  //         if (response.exists) {
-  //           // La location ya existe, usamos su ID
-  //           console.log("La location ya existe, ID:", response.id);
-  //           this.endLocationId = response.id ?? 0;
-  //         } else {
-  //           // La location no existe, la creamos
-  //           this.locationService.createLocation(location).subscribe({
-  //             next: (id) => {
-  //               this.endLocationId = id;
-  //             },
-  //             error: (err) => {
-  //               console.error("Error al crear location:", err);
-  //             }
-  //           });
-  //         }
-  //       },
-  //       error: (err) => {
-  //         console.error("Error al chequear location:", err);
-  //       }
-  //     });
-  //
-  //     //create stage
-  //     this.stageToCreate = {
-  //       name: this.stage.name,
-  //       description: this.stage.description,
-  //       start_datetime: this.stage.start_datetime,
-  //       end_datetime: this.stage.end_datetime,
-  //       distance: this.stage.distance,
-  //       status: this.stage.status,
-  //       user_id_creator: this.userId,
-  //       start_location_id: this.startLocationId,
-  //       end_location_id: this.endLocationId
-  //     };
-  //     console.log(this.stageToCreate);
-  //     this.stageService.createStage(this.stageToCreate);
-  //
-  //   } else {
-  //     console.log('Form is invalid');
-  //   }
-  // }
 
   onSubmit() {
     if (!this.stageForm.valid) {
